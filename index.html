@@ -1,1 +1,199 @@
 <h1>Githubpage</h1>
+<!DOCTYPE html>
+
+//Si encontras este comentario y me lo mandas te debo un beso
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Cumpleaños Maya</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    button {
+      background-color: #ff4081;
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    button:active {
+      transform: scale(1);
+    }
+
+    .scrolling-text {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      overflow: hidden;
+      font-size: 1.5rem;
+      animation: scrollUp 20s linear forwards;
+    }
+
+    @keyframes scrollUp {
+      from {
+        transform: translateY(100%);
+      }
+      to {
+        transform: translateY(-200%);
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin: 0.5rem 0;
+      color: #fff;
+    }
+
+    .speaker-btn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background-color: transparent;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #fff;
+    }
+    
+    img {
+      margin-top: 2rem;
+      max-width: 300px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>¿Es tu cumpleaños 🤨???</h1>
+    <div class="buttons">
+      <button id="yesBtn">Sí</button>
+      <button id="noBtn">No</button>
+    </div>
+  </div>
+
+  <audio id="birthdaySong" src="./mananitas.mp3" volume="0.5"></audio>
+
+  <script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const audio = document.getElementById('birthdaySong');
+
+    audio.volume = 0.5; 
+
+    noBtn.addEventListener('click', () => {
+      window.location.href = 'https://www.tiktok.com/@light_419/video/7310767000182164741?is_from_webapp=1&sender_device=pc';
+    });
+
+    yesBtn.addEventListener('click', () => {
+      document.body.innerHTML = `
+        <div class="scrolling-text">
+          <ul>
+            <li>La cumpleañera más Guapa.</li>
+            <li>La cumpleañera más Hermosa.</li>
+            <li>La cumpleañera más Chula.</li>
+            <li>La cumpleañera más Bella.</li>
+            <li>La cumpleañera más Linda.</li>
+            <li>La cumpleañera más Atractiva.</li>
+            <li>La cumpleañera más Radiante.</li>
+            <li>La cumpleañera más Preciosa.</li>
+            <li>La cumpleañera más Encantadora.</li>
+            <li>La cumpleañera más Maravillosa.</li>
+            <li>La cumpleañera más Fascinante.</li>
+            <li>La cumpleañera más Impresionante.</li>
+            <li>La cumpleañera más Magnífica.</li>
+            <li>La cumpleañera más Increíble.</li>
+            <li>La cumpleañera más Sensacional.</li>
+            <li>La cumpleañera más Gloriosa.</li>
+            <li>La cumpleañera más Perfecta.</li>
+          </ul>
+        </div>
+        <img id="esqueleto" src="./esqueleto.jpg" alt="Esqueleto celebrando">
+        <button class="speaker-btn" id="speakerBtn">&#128266;</button>
+      `;
+
+     
+      audio.play();
+
+      
+      setTimeout(() => {
+        const esqueleto = document.getElementById('esqueleto');
+        if (esqueleto) esqueleto.style.display = 'none';
+      }, 7200);
+
+      
+      const end = Date.now() + 16 * 1000;
+
+      (function frame() {
+        confetti({
+          particleCount: 5,
+          angle: 60,
+          spread: 75,
+          origin: { x: 0 }
+        });
+        confetti({
+          particleCount: 5,
+          angle: 120,
+          spread: 75,
+          origin: { x: 1 }
+        });
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      })();
+
+      
+      const speakerBtn = document.getElementById('speakerBtn');
+      speakerBtn.addEventListener('click', () => {
+        audio.play().catch((error) => console.error('Error al reproducir el audio:', error));
+      });
+    });
+  </script>
+</body>
+</html>
